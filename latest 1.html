@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Accident | Zurich Takaful</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #0a0f1a 0%, #0f172a 50%, #0d1f1a 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .header {
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.5);
+            border-bottom: 1px solid rgba(34, 197, 94, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .logo-text span {
+            color: #22c55e;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #22c55e;
+        }
+
+        .back-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .page-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 24px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(28px, 5vw, 36px);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            color: #94a3b8;
+            font-size: 17px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section h2 span {
+            font-size: 24px;
+        }
+
+        .section p {
+            color: #94a3b8;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .benefits-list li:last-child {
+            border-bottom: none;
+        }
+
+        .benefit-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #22c55e;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .benefit-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .benefit-content p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .advantage-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .advantage-item h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .advantage-item p {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .target-audience {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .target-tag {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #22c55e;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border: none;
+            border-radius: 14px;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+        }
+
+        .whatsapp-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .footer {
+            padding: 32px 24px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer p {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 20px 60px;
+            }
+
+            .section {
+                padding: 24px;
+            }
+
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">Z</div>
+            <div class="logo-text">Zurich <span>Takaful</span></div>
+        </a>
+        <a href="index.html" class="back-link">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Kembali
+        </a>
+    </header>
+
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-icon">⚡</div>
+            <h1>Personal Accident</h1>
+            <p>Perlindungan kemalangan 24 jam di mana sahaja</p>
+        </div>
+
+        <!-- Apa Itu -->
+        <div class="section">
+            <h2><span>💡</span> Apa Itu Personal Accident?</h2>
+            <p>Personal Accident adalah perlindungan komprehensif terhadap kemalangan yang berlaku pada bila-bila masa,
+                di mana sahaja — sama ada di rumah, di tempat kerja, di jalan, atau semasa melancong. Perlindungan ini
+                memberi anda dan keluarga ketenangan minda.</p>
+        </div>
+
+        <!-- Manfaat Utama -->
+        <div class="section">
+            <h2><span>✅</span> Manfaat Utama</h2>
+            <ul class="benefits-list">
+                <li>
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-content">
+                        <h3>Pampasan Kematian</h3>
+                        <p>Wang pampasan kepada keluarga sekiranya berlaku kemalangan maut.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="benefit-icon">🏥</div>
+                    <div class="benefit-content">
+                        <h3>Perbelanjaan Perubatan</h3>
+                        <p>Tanggung kos rawatan hospital dan pembedahan akibat kemalangan.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="benefit-icon">🦴</div>
+                    <div class="benefit-content">
+                        <h3>Pampasan Hilang Upaya</h3>
+                        <p>Wang pampasan berdasarkan tahap hilang upaya (disable).</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="benefit-icon">🚑</div>
+                    <div class="benefit-content">
+                        <h3>Kos Ambulans</h3>
+                        <p>Tanggung kos pengangkutan ke hospital.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Kelebihan -->
+        <div class="section">
+            <h2><span>⭐</span> Kelebihan</h2>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <h3>✓ 24/7 Protection</h3>
+                    <p>Perlindungan sepanjang masa</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>✓ Worldwide Cover</h3>
+                    <p>Perlindungan seluruh dunia</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>✓ Flexible Sum</h3>
+                    <p>Pilih jumlah perlindungan sendiri</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>✓ Quick Claim</h3>
+                    <p>Proses claim yang mudah & cepat</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Siapa Sesuai -->
+        <div class="section">
+            <h2><span>👥</span> Siapa Sesuai Ambil?</h2>
+            <div class="target-audience">
+                <div class="target-tag">🚗 Pemandu</div>
+                <div class="target-tag">🏃 Penggemar sukan</div>
+                <div class="target-tag">✈️ Pengembara</div>
+                <div class="target-tag">👷 Worker / pekerja</div>
+                <div class="target-tag">👨‍👩‍👧‍👦 Keluarga</div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <a href="https://wa.me/601127021209?text=Assalamualaikum%20Ikwan%2C%20saya%20berminat%20nak%20tahu%20tentang%20Personal%20Accident"
+                class="whatsapp-btn">
+                Tanya Sekarang
+            </a>
+
+            <p style="color:#facc15; margin-top:15px;">
+                ⚠️ Semakin lambat mula, semakin tinggi risiko & kos.
+            </p>
+
+            <p style="color:#94a3b8; font-size:14px;">
+                ✔ Konsultasi Percuma | ✔ Tanpa Paksaan | ✔ Mudah Faham
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2026 Zurich Takaful | Agent Ikwan</p>
+        </footer>
+</body>
+
+</html>
